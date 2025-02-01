@@ -5,6 +5,6 @@ SELECT
     CASE WHEN is_nullable = 'NO' THEN ' NOT NULL' ELSE '' END ||
     COALESCE(' DEFAULT ' || column_default, '') || ';' AS create_column_sql
 FROM information_schema.columns
-WHERE table_schema = 'public' AND table_name = '<table_name>' AND column_name IN (
-  'col_name_1', 'col_name_2'
+WHERE table_schema = '<schema_name>' AND table_name = '<table_name>' AND column_name IN (
+  '<col_name_1>', '<col_name_2>'
   );
