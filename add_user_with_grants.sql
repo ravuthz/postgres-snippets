@@ -16,6 +16,17 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO dev1;
 GRANT INSERT, UPDATE, DELETE, SELECT ON ALL TABLES IN SCHEMA public TO dev1;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT INSERT, UPDATE, DELETE, SELECT ON TABLES TO dev1;
 
+-- Allow "dev1" to full access to all tables of "public" schema
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO dev1;
+-- I does the same actions to 'GRANT ALL' 
+ALTER DEFAULT PRIVILEGES IN SCHEMA lmdev
+GRANT SELECT, INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER ON TABLES TO dev1;
+
+
+-- Allow "dev1" to full access to all sequences of "public" schema
+GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO dev1;
+
+
 -- Check current login user and selected database
 SELECT current_user, current_database();
 
