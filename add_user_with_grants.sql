@@ -11,9 +11,12 @@ GRANT USAGE ON SCHEMA public TO dev1;
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO dev1;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO dev1;
 
-
 -- Allow "dev1" to read and write to all tables of "public" schema
 GRANT INSERT, UPDATE, DELETE, SELECT ON ALL TABLES IN SCHEMA public TO dev1;
+
+-- Allow "dev1" all privileges to all tables of "public" schema
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO dev1;
+
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT INSERT, UPDATE, DELETE, SELECT ON TABLES TO dev1;
 
 -- Allow "dev1" to full access to all tables of "public" schema
